@@ -1,6 +1,6 @@
 name: blinking_border
 description: "A lightweight, highly configurable Flutter widget that animates a border around any child widget with multiple styles and smooth animations."
-version: 1.2.0
+version: 1.2.1
 homepage: https://github.com/jamalianpour/blinking_border
 repository: https://github.com/jamalianpour/blinking_border
 issue_tracker: https://github.com/jamalianpour/blinking_border/issues

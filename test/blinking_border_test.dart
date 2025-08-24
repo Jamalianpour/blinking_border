@@ -13,7 +13,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: BlinkingBorder(
-              child: Container(key: testKey, width: 100, height: 100),
+              child: SizedBox(key: testKey, width: 100, height: 100),
             ),
           ),
         ),
@@ -30,7 +30,7 @@ void main() {
           home: Scaffold(
             body: BlinkingBorder(
               color: Colors.red,
-              child: Container(width: 100, height: 100),
+              child: SizedBox(width: 100, height: 100),
             ),
           ),
         ),
@@ -51,7 +51,7 @@ void main() {
           home: Scaffold(
             body: BlinkingBorder(
               autoStart: false,
-              child: Container(width: 100, height: 100),
+              child: SizedBox(width: 100, height: 100),
             ),
           ),
         ),
@@ -74,7 +74,7 @@ void main() {
           home: Scaffold(
             body: BlinkingBorder(
               borderRadius: testRadius,
-              child: Container(width: 100, height: 100),
+              child: SizedBox(width: 100, height: 100),
             ),
           ),
         ),
@@ -95,7 +95,7 @@ void main() {
           home: Scaffold(
             body: BlinkingBorder(
               blinkStyle: BlinkStyle.cornerSweep,
-              child: Container(width: 100, height: 100),
+              child: SizedBox(width: 100, height: 100),
             ),
           ),
         ),
@@ -116,7 +116,7 @@ void main() {
           home: Scaffold(
             body: BlinkingBorder(
               blinkStyle: BlinkStyle.rainbow,
-              child: Container(width: 100, height: 100),
+              child: SizedBox(width: 100, height: 100),
             ),
           ),
         ),
@@ -138,7 +138,7 @@ void main() {
             body: BlinkingBorder(
               blinkStyle: BlinkStyle.pulsing,
               pulseScale: 0.1,
-              child: Container(width: 100, height: 100),
+              child: SizedBox(width: 100, height: 100),
             ),
           ),
         ),
@@ -160,7 +160,7 @@ void main() {
           home: Scaffold(
             body: BlinkingBorder(
               blinkStyle: BlinkStyle.glowing,
-              child: Container(width: 100, height: 100),
+              child: SizedBox(width: 100, height: 100),
             ),
           ),
         ),
@@ -181,7 +181,7 @@ void main() {
           home: Scaffold(
             body: BlinkingBorder(
               strokeStyle: StrokeStyle.dashed,
-              child: Container(width: 100, height: 100),
+              child: SizedBox(width: 100, height: 100),
             ),
           ),
         ),
