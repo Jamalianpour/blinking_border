@@ -1,13 +1,10 @@
 name: Deploy Demo to GitHub Pages
 
 on:
-  # Trigger on push to main branch
   push:
     branches: [ main, master ]
-  # Trigger on pull request
   pull_request:
     branches: [ main, master ]
-  # Allow manual trigger
   workflow_dispatch:
 
 permissions:
@@ -22,6 +19,9 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
       - name: Checkout repository
@@ -63,4 +63,4 @@ jobs:
       - name: Success Notification
         run: |
           echo "✅ Demo successfully deployed to GitHub Pages!"
-          echo "🌐 Visit: https://jamalianpour.github.io/blinking_border/"
+          echo "🌐 Visit: ${{ needs.build-and-deploy.outputs.page_url }}"
