@@ -1,0 +1,66 @@
+name: Deploy Demo to GitHub Pages
+
+on:
+  # Trigger on push to main branch
+  push:
+    branches: [ main, master ]
+  # Trigger on pull request
+  pull_request:
+    branches: [ main, master ]
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.1'
+          channel: 'stable'
+      
+      - name: Get dependencies
+        run: |
+          cd example
+          flutter pub get
+      
+      - name: Build Flutter Web
+        run: |
+          cd example
+          flutter build web --release --web-renderer html --base-href /blinking_border/
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'example/build/web'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  notify-success:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Success Notification
+        run: |
+          echo "✅ Demo successfully deployed to GitHub Pages!"
+          echo "🌐 Visit: https://jamalianpour.github.io/blinking_border/"

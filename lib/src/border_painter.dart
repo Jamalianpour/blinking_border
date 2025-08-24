@@ -61,7 +61,7 @@ class BorderPainter extends CustomPainter {
   void _drawNormalBlink(Canvas canvas, RRect rrect, Paint paint) {
     // Smooth sine wave for natural pulsing
     final opacity = (math.sin(animationValue * 2 * math.pi) + 1) / 2;
-    paint.color = color.withOpacity(opacity);
+    paint.color = color.withValues(alpha: opacity);
 
     switch (strokeStyle) {
       case StrokeStyle.solid:
@@ -99,7 +99,7 @@ class BorderPainter extends CustomPainter {
           final fadeRatio = i / sweepLength;
           final opacity = math.sin(fadeRatio * math.pi);
 
-          paint.color = color.withOpacity(opacity);
+          paint.color = color.withValues(alpha: opacity);
 
           switch (strokeStyle) {
             case StrokeStyle.solid:
@@ -194,7 +194,7 @@ class BorderPainter extends CustomPainter {
 
     // Draw with pulsing opacity
     final opacity = 0.3 + ((pulse + 1) / 2) * 0.7; // Range from 0.3 to 1.0
-    paint.color = color.withOpacity(opacity);
+    paint.color = color.withValues(alpha: opacity);
 
     switch (strokeStyle) {
       case StrokeStyle.solid:
@@ -223,7 +223,7 @@ class BorderPainter extends CustomPainter {
       final blurRadius = strokeWidth * (i + 1) * 1.5;
 
       paint
-        ..color = color.withOpacity(layerOpacity)
+        ..color = color.withValues(alpha: layerOpacity)
         ..strokeWidth = strokeWidth + (i * 2)
         ..maskFilter = MaskFilter.blur(BlurStyle.normal, blurRadius);
 
@@ -242,7 +242,7 @@ class BorderPainter extends CustomPainter {
 
     // Draw the main border on top
     paint
-      ..color = color.withOpacity(0.8 + (glowIntensity * 0.2))
+      ..color = color.withValues(alpha: 0.8 + (glowIntensity * 0.2))
       ..strokeWidth = strokeWidth
       ..maskFilter = null;
 

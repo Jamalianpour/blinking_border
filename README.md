@@ -28,6 +28,11 @@ A lightweight, highly configurable Flutter widget that animates a border around 
 - 📱 **Responsive**: Works with any child widget and adapts to size changes
 - ⚡ **Lightweight**: Minimal performance impact
 
+## 🌐 Live Demo
+
+Experience all features in our interactive playground:
+**[https://jamalianpour.github.io/blinking_border/](https://jamalianpour.github.io/blinking_border/)**
+
 ## 📦 Installation
 
 Add this to your package's `pubspec.yaml` file:
