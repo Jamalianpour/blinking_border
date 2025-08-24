@@ -1,3 +1,7 @@
+## [1.2.1]
+
+- Add live demo to readme
+
 ## [1.2.0]
 
 ### Added
