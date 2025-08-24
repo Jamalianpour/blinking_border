@@ -41,7 +41,7 @@ jobs:
       - name: Build Flutter Web
         run: |
           cd example
-          flutter build web --release --web-renderer html --base-href /blinking_border/
+          flutter build web --release --base-href /blinking_border/
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
